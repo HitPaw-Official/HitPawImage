@@ -1,46 +1,37 @@
-# NSFW Image Classification with a Fine-Tuned ViT
+# 基于ViT微调的NSFW图像分类模型
 
-## Model source
+## 算法来源
+微调模型：[HuggingFace](https://huggingface.co/Falconsai/nsfw_image_detection)
 
-Fine-tuning is based on: [Falconsai/nsfw_image_detection on HuggingFace](https://huggingface.co/Falconsai/nsfw_image_detection).
-
-## Environment setup
-
-Create and configure the environment as follows:
-
+## 环境安装
+按照如下命令配置环境:
 ```bash
 conda create -n nsfw python=3.10
 pip install -r requirements.txt
 ```
 
-## Usage
-
-### Train
+## 使用说明
+### Train  
 
 ```bash
-python gather_img_to_txt.py
+python gather_img_to_txt.py  
 CUDA_VISIBLE_DEVICES=0,1 python vit_finetune_nsfw.py
 ```
 
-### Inference
-
+### Infenence
 ```bash
 python afs_nsfw_img_cls.py
 ```
+分类模型路径(nsfw_ckpt): /data/liuji/projects/nsfw_detection/run/nsfw_finetune_1e-4_224/checkpoint-495   
+检测模型路径(detection_ckpt): /data/liuji/projects/nsfw_detection/yolo11x.pt   
+以上路径在服务器：192.168.50.194 （user:liuji, pw:user01890)  
 
-Example checkpoint paths (adjust to your machine or deployment):
-
-[models](https://huggingface.co/HitPawOfficial/HitPawImage/tree/main/NSFWImageClassification)
-
-### Demo
-
+### Demo  
 ```bash
 python demo.py
 ```
 
-### Speed, VRAM, and demo notes
-
-- **Speed & VRAM:** On an RTX 4090, a single image with one main person takes about **0.15 s**, with roughly **1 GB** VRAM.
-- **Demo:** see the screenshot below.
-
-![Demo illustration](nsfw-demo.png)
+### 推理显存、推理速度、demo说明
+速度与显存：在4090显卡上，测试一张单个人物的图像耗时0.15s， 显存占用1G  
+demo说明：  
+![demo说明](nsfw-demo.png)
