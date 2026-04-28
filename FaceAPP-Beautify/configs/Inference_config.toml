@@ -1,0 +1,34 @@
+# "TOML in file Inference_config"
+
+# 初始化
+[modelinit]
+platform = "Win"  # Mac电脑："macOS" / Windows电脑："Win"
+device = "CPU"    # 使用CoreML: "CoreML" / 使用CPU: "CPU"
+deviceid = 0
+
+[FaceDetectorOnnx]
+modelname = "model/HP_FACE_DETECTOR.onnx"
+
+[cfg_re50]
+    name = "Resnet50"
+    min_sizes = [[16, 32], [64, 128], [256, 512]]
+    steps = [8, 16, 32]
+    variance = [0.1, 0.2]
+    clip = false
+
+[FaceRestoreOnnx]
+modelname = "model/appface_transfer/hlw1.onnx"
+
+#多帧超分模型
+[MultFaceRestoreOnnx]
+#modelname = "model/FRNet_15w_1x.onnx"
+#modelname = "model/FRNet_topaz2frnet.onnx"
+modelname = "model/iris-v3-fgnet-fp16-384x480-1x.onnx"
+
+[MultFaceRestorex2_Onnx]
+#modelname = "model/FRNet_8.5w_2x.onnx"
+#modelname = "model/FRNet_7w_2x.onnx"
+modelname = "model/FocusFix-fp16-384x480-2x.onnx"
+
+[DetectNoiseLevelOnnx]
+modelname = "model/eval_v1.1_NX_fp32_P.onnx"
