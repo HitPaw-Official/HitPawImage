@@ -13,8 +13,8 @@ pip install numpy opencv-python pillow tqdm onnxruntime
 ## Model
 
 Download the models from the following link:
-[models](https://huggingface.co/HitPawOfficial/HitPawImage/tree/main/model)
-[face_models.pth](https://huggingface.co/HitPawOfficial/HitPawImage/tree/main/pth)
+[models](https://huggingface.co/HitPawOfficial/HitPawImage/tree/main/FaceAPP-Beautify/model)
+[face_models.pth](https://huggingface.co/HitPawOfficial/HitPawImage/tree/main/FaceAPP-Beautify/pth)
 
 Place the downloaded model files (including detector, parsing, and transfer ONNX weights) under the project `model/` directory so that paths such as `model/HP_FACE_DETECTOR.onnx`, `model/faceparsing.onnx`, and `model/appface_transfer_female/` / `model/appface_transfer_male/` resolve correctly.
 
