@@ -1,0 +1,10 @@
+conda create -n hp python=3.10
+conda activate hp
+conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvidia
+pip install opencv-python tqdm json-tricks ultralytics timm
+pip install tb-nightly -i https://mirrors.aliyun.com/pypi/simple
+pip install modelscope==1.15.0
+pip install -U openmim
+mim install mmcv==2.2.0
+pip install -r requirements.txt
+python setup.py develop
